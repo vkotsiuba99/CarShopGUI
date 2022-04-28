@@ -30,14 +30,23 @@ namespace CarShopGUI
         private void btn_create_car_Click(object sender, EventArgs e)
         {
             Car car = new Car(txt_make.Text, txt_model.Text, decimal.Parse(txt_price.Text));
-            // MessageBox.Show(car.ToString());
             myStore.CarList.Add(car);
             carInventoryBindingSource.ResetBindings(false);
+            txt_make.Text = "";
+            txt_model.Text = "";
+            txt_price.Text = "";
         }
 
         private void btn_addtocart_Click(object sender, EventArgs e)
         {
+            // get the selected item from inventory
+            Car selected = (Car) lst_inventory.SelectedItem;
 
+            // add that item to the cart
+            myStore.ShoppingList.Add(selected);
+
+            // update the list box control
+            cartBindingSource.ResetBindings(false);
         }
 
         private void btn_checkout_Click(object sender, EventArgs e)
@@ -49,8 +58,13 @@ namespace CarShopGUI
         {
             carInventoryBindingSource.DataSource = myStore.CarList;
 
+            cartBindingSource.DataSource = myStore.ShoppingList;
+
             lst_inventory.DataSource = carInventoryBindingSource;
             lst_inventory.DisplayMember = ToString();
+
+            lst_cart.DataSource = cartBindingSource;
+            lst_cart.DisplayMember = ToString();
         }
     }
 }

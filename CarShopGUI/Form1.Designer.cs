@@ -201,11 +201,12 @@
             // 
             // lst_cart
             // 
+            this.lst_cart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lst_cart.FormattingEnabled = true;
-            this.lst_cart.ItemHeight = 20;
+            this.lst_cart.ItemHeight = 18;
             this.lst_cart.Location = new System.Drawing.Point(7, 23);
             this.lst_cart.Name = "lst_cart";
-            this.lst_cart.Size = new System.Drawing.Size(242, 384);
+            this.lst_cart.Size = new System.Drawing.Size(242, 382);
             this.lst_cart.TabIndex = 0;
             // 
             // Form1
